@@ -56,7 +56,7 @@ class MlQuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        $url = 'http://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=4883595089076522';
+        $url = 'http://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=APP_ID';
 
         echo "<a href='$url'>Refresh Token: </a>";
         $this->meli   = new Meli('APP_ID', 'KEY');
