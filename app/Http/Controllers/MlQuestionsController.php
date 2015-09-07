@@ -26,9 +26,9 @@ class MlQuestionsController extends Controller
     public function index()
     {
         $this->code = $_GET['code'];
-        $url = 'http://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=4883595089076522';
+        $url = 'http://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=APP_ID';
         echo "<a href='$url'>Refresh Token: </a>";
-        $this->meli   = new Meli('4883595089076522', 'EKXklKN4kVoNJTEvEeWOEEID0tEWnWjI');
+        $this->meli   = new Meli('APP_ID', 'KEY');
         $oAuth = $this->meli->authorize($this->code, 'http://www.abdonor.com.br/wdna/redirect.php');
         $_SESSION['access_token'] = $oAuth['body']->access_token;
         $params = array();
@@ -59,7 +59,7 @@ class MlQuestionsController extends Controller
         $url = 'http://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=4883595089076522';
 
         echo "<a href='$url'>Refresh Token: </a>";
-        $this->meli   = new Meli('4883595089076522', 'EKXklKN4kVoNJTEvEeWOEEID0tEWnWjI');
+        $this->meli   = new Meli('APP_ID', 'KEY');
         $oAuth = $this->meli->authorize($_POST['code'], 'http://www.abdonor.com.br/wdna/redirect.php');
         $_SESSION['access_token'] = $oAuth['body']->access_token;
          
